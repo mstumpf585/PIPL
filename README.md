@@ -37,18 +37,18 @@ make
 ```
 ## Built With
 
-* [BeagleLog](https://github.com/abhishek-kakkar/BeagleLogic/wiki) - The kernel driver and PRU assembly code 
+* [BeagleLogic](https://github.com/abhishek-kakkar/BeagleLogic/wiki) - The kernel driver and PRU assembly code 
 * [PAHO](https://eclipse.org/paho/clients/c/) - MQTT libraries 
 
 ## Authors
 
-* **Daphne Cruz **    - [Daphne]()
+* **Daphne Cruz**     - [Daphne](https://github.com)
 * **Kevin Brenneman** - [kalvin66rocks](https://github.com/kalvin66rocks)
 * **Micahel Stumpf**  - [pro585code](https://github.com/pro585code)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
