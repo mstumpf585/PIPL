@@ -288,8 +288,8 @@ void *MQTT_thread(void *MQTT_package){
   int y;
   const char *TOPIC[3];
   TOPIC[0] = "OneSec";
-  TOPIC[1] = "pstart";
-  TOPIC[2] = "pend";
+  TOPIC[1] = "pend";
+  TOPIC[2] = "pstart";
 
   MQTT_Package *package = (MQTT_Package*)MQTT_package;
   int rc, semVal;
