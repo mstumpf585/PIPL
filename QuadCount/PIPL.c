@@ -113,11 +113,9 @@ int main(int argc, char **argv)
 
 	/* Open BeagleLogic */
 	clock_gettime(CLOCK_MONOTONIC, &t1);
-//#if defined(NONBLOCK)
+
 	bfd = beaglelogic_open_nonblock();
-//#else
-//	bfd = beaglelogic_open();
-//#endif
+
 	clock_gettime(CLOCK_MONOTONIC, &t2);
 
 	if (bfd == -1) {
@@ -127,9 +125,6 @@ int main(int argc, char **argv)
 
 	printf("BeagleLogic opened successfully in %jd us\n",
 		timediff(&t1, &t2));
-
-	/* Memory map the file */
-	//bl_mem = beaglelogic_mmap(bfd);
 
 	/* Configure the poll descriptor */
 	pollfd.fd = bfd;
@@ -278,7 +273,6 @@ int main(int argc, char **argv)
 	clock_gettime(CLOCK_MONOTONIC, &t2);
 
 	/* Done, close mappings, file and free the buffers */
-	//beaglelogic_munmap(bfd, bl_mem);
 	beaglelogic_close(bfd);
 
 	free(buf);
