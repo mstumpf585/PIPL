@@ -20,11 +20,11 @@ The application also uses libssl-dev for communicating with the broker
 apt-get install libssl-dev  
 ```
 
-To publish to the broker the application is dependent apon MQTT Paho libraries which can be found
+To publish to the broker the application is dependent on MQTT Paho libraries which can be found
 [here](https://eclipse.org/paho/clients/c/) along with a easy to follow tutorial on how to build it. 
 
 ### Building
-Once you have Paho up and running you should be able to build the PIPL applicaition after cloneing this repo on to the BeagleBone run the following 
+Once you have Paho up and running you should be able to build the PIPL application  after cloning  this repo on to the BeagleBone run the following 
 
 ```
 cd PIPL/quadCount
@@ -40,7 +40,7 @@ make
 
 * **Daphne Cruz**     - [Daphne](https://github.com)
 * **Kevin Brenneman** - [kalvin66rocks](https://github.com/kalvin66rocks)
-* **Micahel Stumpf**  - [pro585code](https://github.com/pro585code)
+* **Michael Stumpf**  - [pro585code](https://github.com/pro585code)
 
 ## License
 
