@@ -32,6 +32,8 @@
 #define QOS		1
 #define TIMEOUT		10000
 #define PAYLOADSIZE 10000
+#define publishLines 15
+#define bytePairLines 5
 
 int j;
 
@@ -285,7 +287,8 @@ inline void MQTT_queueData(void *MQTT_package) {
 /* Thread handler*/
 void *MQTT_thread(void *MQTT_package){
 
-  int y;
+  int singleLine;
+  const int decrement = 5; // for use with singleLine when publishing to MQTT
   const char *TOPIC[3];
   TOPIC[0] = "OneSec";
   TOPIC[1] = "pstart";
@@ -329,23 +332,26 @@ void *MQTT_thread(void *MQTT_package){
       strcpy(PAYLOAD,"");
 
       /* Create Payload to send */
-      for(y=0; y<10; y++){
+      for(singleLine=0; singleLine < publishLines; singleLine++){
 
-        if(y<5){
+        if(singleLine < bytePairLines){
 
           sprintf(PAYLOAD, "Counts for Byte Pair %lu\n"
           "Forward Counts = %lu\n"
           "Backward Counts = %lu\n"
           "Error Counts = %lu\n",
-          y, package->MQTT_countforward[y], package->MQTT_countbackward[y],
-          package->MQTT_counterror[y]);
+          singleLine, package->MQTT_countforward[singleLine], package->MQTT_countbackward[singleLine],
+          package->MQTT_counterror[singleLine]);
 
           pubmsg.payload = PAYLOAD;
           pubmsg.payloadlen = strlen(PAYLOAD);
           MQTTClient_publishMessage(client, TOPIC[package->MQTT_event], &pubmsg, &token);
+        }else{
+            // print indiependent channels
+            sprintf(PAYLOAD, "channel %d Rising Edge Counts = %lu\n Last Rising Edge Time = %lu\n",
+            (singleLine - decrement), package->MQTT_risingEdgeTime[singleLine - decrement], package->MQTT_LastRisingEdgeTime[singleLine - decrement]);
         }
-        sprintf(PAYLOAD, "channel %d Rising Edge Counts = %lu\n Last Rising Edge Time = %lu\n",
-          y,package->MQTT_risingEdgeTime[y], package->MQTT_LastRisingEdgeTime[y]);
+
 
           pubmsg.payload = PAYLOAD;
           pubmsg.payloadlen = strlen(PAYLOAD);
