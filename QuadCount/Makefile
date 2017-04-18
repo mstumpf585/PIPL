@@ -4,8 +4,8 @@ DEBUG = -g
 CFLAGS = -c -pthread $(DEBUG)
 LFLAGS = -pthread -lpaho-mqtt3c $(DEBUG)
 
-seniorDesignAPP : $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o seniorDesignAPP
+PIPL : $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) -o PIPL
 
 beaglelogic_seniorDesignV2.o : seniorDesign/seniorDesignLib.h libbeaglelogic.h beaglelogic_seniorDesignV2.c 
 	$(CC) $(CFLAGS) beaglelogic_seniorDesignV2.c
@@ -16,5 +16,5 @@ beaglelogic.o : libbeaglelogic.h beaglelogic.c
 seniorDesign.o : seniorDesign/seniorDesignLib.h seniorDesign/seniorDesign.c
 	$(CC) -L/home/debian/paho.mqtt.c/build/output $(CFLAGS) -lpaho-mqtt3c seniorDesign/seniorDesign.c
 clean:
-	\rm *.o seniorDesignAPP
+	\rm *.o ./quadCount
 
