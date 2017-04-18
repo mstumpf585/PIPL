@@ -1,6 +1,6 @@
 # Pulse Input Processor and Logger 
 
-This project is a Penn State Behrend Senior Design Project for TechnipFMC. This project employs the use of the BeagleLogic library to capture data at 8Ms/s on the BeagleBone Black. The application in its current state is used to analyze quadrature encoded signals up to 10khz. Every second the application will publish its data to a MQTT Mosquitto broker to be analyzed on separate devices that are subscribed to the broker. 
+This project is a Penn State Behrend Senior Design Project for TechnipFMC. This project employs the use of the BeagleLogic library to capture data at 8 MS/s on the BeagleBone Black. The application in its current state is used to analyze quadrature encoded signals up to 10 kHz. Every second the application will publish its data to a MQTT Mosquitto broker to be analyzed on separate devices that are subscribed to the broker. 
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ make
 
 ## Authors
 
-* **Daphne Cruz**     - [Daphne](https://github.com/daphnecruz)
+* **Daphne Cruz**     - [daphnecruz](https://github.com/daphnecruz)
 * **Kevin Brenneman** - [kalvin66rocks](https://github.com/kalvin66rocks)
 * **Michael Stumpf**  - [pro585code](https://github.com/pro585code)
 
