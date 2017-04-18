@@ -202,7 +202,7 @@ int main(int argc, char **argv)
 			/*Start a timer for Debug */
 			clock_gettime(CLOCK_MONOTONIC, &t3);
 
-			while(!pollfd.revents){};
+			//while(!pollfd.revents){};
 			sz = read(bfd, buffer, bufSZ);
 			if(sz == 0)
 				continue;
@@ -221,7 +221,7 @@ int main(int argc, char **argv)
 				if(i>0){
 					if (buffer[i] != buffer[i-2] || buffer[i + 1] != buffer[i-1]){
 
-						fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
+						//fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
 						changeState((int) buffer[i], (int) buffer[i + 1]);
 					}
 				}
@@ -230,12 +230,12 @@ int main(int argc, char **argv)
 					/* first run ever */
 					if(runCounter == 0){
 						changeState((int)buffer[i], (int)buffer[i+1]);
-						fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
+						//fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
 					}else{
 						if(temp_buff2 != buffer[i] || temp_buff1 != buffer[i+1]){
 
 							changeState((int)buffer[i], (int)buffer[i+1]);
-						        fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
+						        //fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
 						}
 					}
 
