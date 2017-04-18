@@ -41,7 +41,7 @@ make
 
 ## Authors
 
-* **Daphne Cruz**     - [Daphne](https://github.com)
+* **Daphne Cruz**     - [Daphne](https://github.com/daphnecruz)
 * **Kevin Brenneman** - [kalvin66rocks](https://github.com/kalvin66rocks)
 * **Michael Stumpf**  - [pro585code](https://github.com/pro585code)
 
