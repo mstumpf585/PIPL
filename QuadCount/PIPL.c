@@ -243,7 +243,7 @@ int main(int argc, char **argv)
 				}
 
 				/* Check to see if we need to transmit to MQTT */
-				if (pub_signal){
+				if (pub_signal && (!((buffer[i+1] & proverEnd) == proverEnd) || (!(buffer[i+1] & proverStart) == proverStart)){
 
 					event = 0;
 					MQTT_queueData(&package_t);
