@@ -12,7 +12,7 @@ To build this app you will need quite a few libraries
 
 Since the application publishes to MQTT your BeagleBone will need to have MQTT Mosquitto installed
 ```
-apt-get install mosquitto mosquitto-clinets  
+apt-get install mosquitto mosquitto-clients  
 ```
 
 The application also uses libssl-dev for communicating with the broker 
@@ -28,11 +28,7 @@ Once you have Paho up and running you should be able to build the PIPL applicait
 
 ```
 cd PIPL/quadCount
-```
-```
 make
-```
-```
 ./PIPL
 ```
 ## Built With
