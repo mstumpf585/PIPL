@@ -44,7 +44,6 @@ sem_t MQTT_mutex;
 /* for prover stroke */
 #define proverStart 0b00000010
 #define proverEnd   0b00000001
-#define proverMask  0b00000011
 
 /* Size of buffer */
 #define bufSZ 4*1000*1000
@@ -243,18 +242,20 @@ int main(int argc, char **argv)
 				}
 
 				/* Check to see if we need to transmit to MQTT */
-				if (pub_signal && (!((buffer[i+1] & proverEnd) == proverEnd) || (!(buffer[i+1] & proverStart) == proverStart)){
+				if (pub_signal){
 
 					event = 0;
 					MQTT_queueData(&package_t);
 				}
-				else if(buffer[i+1] & proverStart == proverStart){
+				else if((buffer[i+1] & proverStart) == proverStart){
 
+					//printf("start %2x\n",buffer[i+1] & proverStart) ;
 					event = 1;
 					MQTT_queueData(&package_t);
 				}
-				else if(buffer[i+1] & proverEnd == proverEnd){
+				else if((buffer[i+1] & proverEnd) == proverEnd){
 
+					//printf("end %2x\n", buffer[i+1] & proverEnd);
 					event = 2;
 					MQTT_queueData(&package_t);
 				}
