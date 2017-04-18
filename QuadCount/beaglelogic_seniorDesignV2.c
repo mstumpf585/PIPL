@@ -166,7 +166,7 @@ int main(int argc, char **argv)
 
 	/* Configure capture settings */
 	clock_gettime(CLOCK_MONOTONIC, &t1);
-	beaglelogic_set_samplerate(bfd, 6 * 1000 * 1000);
+	beaglelogic_set_samplerate(bfd, 4 * 1000 * 1000);
 	beaglelogic_set_sampleunit(bfd, BL_SAMPLEUNIT_16_BITS);
 	beaglelogic_set_triggerflags(bfd, BL_TRIGGERFLAGS_CONTINUOUS);
 	clock_gettime(CLOCK_MONOTONIC, &t2);
