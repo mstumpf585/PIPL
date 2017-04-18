@@ -291,8 +291,8 @@ void *MQTT_thread(void *MQTT_package){
   const int decrement = 5; // for use with singleLine when publishing to MQTT
   const char *TOPIC[3];
   TOPIC[0] = "OneSec";
-  TOPIC[1] = "pstart";
-  TOPIC[2] = "pend";
+  TOPIC[1] = "pend";
+  TOPIC[2] = "pstart";
 
   MQTT_Package *package = (MQTT_Package*)MQTT_package;
   int rc, semVal;
@@ -343,9 +343,9 @@ void *MQTT_thread(void *MQTT_package){
           singleLine, package->MQTT_countforward[singleLine], package->MQTT_countbackward[singleLine],
           package->MQTT_counterror[singleLine]);
 
-          pubmsg.payload = PAYLOAD;
-          pubmsg.payloadlen = strlen(PAYLOAD);
-          MQTTClient_publishMessage(client, TOPIC[package->MQTT_event], &pubmsg, &token);
+          // pubmsg.payload = PAYLOAD;
+          // pubmsg.payloadlen = strlen(PAYLOAD);
+          // MQTTClient_publishMessage(client, TOPIC[package->MQTT_event], &pubmsg, &token);
         }else{
             // print indiependent channels
             sprintf(PAYLOAD, "channel %d Rising Edge Counts = %lu\n Last Rising Edge Time = %lu\n",
@@ -355,7 +355,7 @@ void *MQTT_thread(void *MQTT_package){
 
           pubmsg.payload = PAYLOAD;
           pubmsg.payloadlen = strlen(PAYLOAD);
-        MQTTClient_publishMessage(client, TOPIC[package->MQTT_event], &pubmsg, &token);
+          MQTTClient_publishMessage(client, TOPIC[package->MQTT_event], &pubmsg, &token);
       }
 
       /* Add Tigger event */
