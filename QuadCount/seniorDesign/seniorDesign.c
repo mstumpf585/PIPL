@@ -1,8 +1,11 @@
 /*
  * SeniorDesign.c
  *
- *  Created on: Feb 2, 2017
- *      Author: Michael
+ *  Authors: Daphne Cruz Hidalgo, Kevin Brenneman, Michael Stumpf
+ *  Written for: TechnipFMC
+ *  Senior Design Project Penn State Behrend 2016-2017
+ *  Project: Pulse Input Processor and Logger
+ *
  */
 
 #include <stdlib.h>
