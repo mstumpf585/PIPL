@@ -208,14 +208,11 @@ int main(int argc, char **argv)
 			/*Check For bit changes*/
 			for (i=0; i < sz; i+=2) {
 
-				/*Debug*/
-				//printf("%2x %2x\n", buffer[i], buffer[i + 1]);
 				clockValue++;
 
 				if(i>0){
 					if (buffer[i] != buffer[i-2] || buffer[i + 1] != buffer[i-1]){
 
-						//fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
 						changeState((int) buffer[i], (int) buffer[i + 1]);
 					}
 				}
@@ -224,12 +221,10 @@ int main(int argc, char **argv)
 					/* first run ever */
 					if(runCounter == 0){
 						changeState((int)buffer[i], (int)buffer[i+1]);
-						//fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
 					}else{
 						if(temp_buff2 != buffer[i] || temp_buff1 != buffer[i+1]){
 
 							changeState((int)buffer[i], (int)buffer[i+1]);
-						        //fprintf(fd, "\n %d, %2x, %2x, %d, %d, %llu", i, buffer[i], buffer[i+1], risingEdgeCounts[8], sz, masterTime);
 						}
 					}
 
